@@ -1,7 +1,5 @@
 <h1>Quipley</h1>
 <% @needs.first(10).each do |need| %>
-<a href="/register?need_id=<%= need['id']%>&need_name=<%= need['name'] %>"><%= need %></a>
+<a href="/register?need_id=<%= need['id']%>&need_name=<%= need['name'] %>"><%= need['name'] %></a>
 <br><br>
 <% end %>
-
-<p><a href="/register">Register</a></p>
