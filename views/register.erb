@@ -1,0 +1,37 @@
+<h1>Register</h1>
+<form action="/register" method="POST">
+  <label><%= @need_name %></label>
+  <input type="hidden" name="need_id" value="<%= @need_id %>">
+  <br><br>
+  <label>Merchant Information</label>
+  <input type="text" name="name" placeholder="Merchant Name">
+  <input type="text" name="url" placeholder="Website URL">
+  <label>User Information</label>
+  <input type="text" name="first_name" placeholder="First Name">
+  <input type="text" name="last_name" placeholder="Last Name">
+  <input type="text" name="mobile" placeholder="Phone Number">
+  <input type="text" name="email" placeholder="Email">
+  <input type="password" name="password" placeholder="password">
+  <input type="password" name="password_confirmation" placeholder="password-confirmation">
+  <label>Location Information</label>
+  <input type="text" name="street" placeholder="Street">
+  <input type="text" name="city" placeholder="City">
+  <input type="text" name="state" placeholder="State">
+  <input type="text" name="zip" placeholder="Zip">
+  <label>Commitment</label>
+  <input type="text" name="promised_amount" placeholder="Amount">
+  <input type="text" name="promised_percentage" placeholder="Percentage">
+  <input type="text" name="start_date" placeholder="Start Date">
+  <input type="text" name="end_date" placeholder="End Date">
+  <input type="text" name="product_discount_amount" placeholder="Discount">
+  <input type="submit" value="Submit">
+</form>
+
+<style>
+  input {
+    display: block;
+    padding: 5px;
+    margin: 10px 0;
+    width: 200px;
+  }
+</style>
