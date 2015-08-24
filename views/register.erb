@@ -5,8 +5,8 @@
   <div class="container-fluid">
     <div class="row">
       <img class="img-responsive col-xs-12 col-md-6 col-md-offset-3" src="https://files.slack.com/files-pri/T03N9UL8E-F09B9TK0D/special_needs_banner_2x.png?">
-      <h4><%= @need_name %></h4>
     </div>
+    <h4><%= @need_name %></h4>
     <form action="/register" method="POST">
       <input type="hidden" name="need_id" value="<%= @need_id %>">
       <div class="row">
@@ -99,14 +99,14 @@
           </label>
         </div>
       </div>
-      <div id="amount-text" class="row">
+      <div id="amount-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control amount-field" type="text" name="amount" placeholder="Amount">
+          <input class="form-control" type="text" name="amount" placeholder="Amount">
         </div>
       </div>
-      <div id="percentage-text" class="row">
+      <div id="percentage-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control amount-field" type="text" name="percentage" placeholder="Percentage">
+          <input class="form-control" type="text" name="percentage" placeholder="Percentage">
         </div>
       </div>
       <div class="row">

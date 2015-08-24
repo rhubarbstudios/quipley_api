@@ -1,4 +1,4 @@
-h1 {
+h1, h2, h3, h4 {
   text-align: center;
   color: #61697C; }
 
@@ -37,27 +37,5 @@ body {
 #register h2 {
   text-align: center;
   margin-top: 100px; }
-#register form {
-  text-align: center;
-  margin: 0 auto; }
-#register .community-support {
-  vertical-align: top; }
-#register input {
-  display: block;
-  height: 50px;
-  padding: 5px;
-  margin: 10px 0;
-  width: 250px; }
-#register input[type=radio] {
-  display: inline;
-  width: 20px; }
-#register .amount-field {
-  display: inline;
-  height: 30px;
-  width: 74px; }
-#register .submit {
-  color: white;
-  text-transform: uppercase;
-  font-size: 14px; }
 
 /*# sourceMappingURL=main.css.map */

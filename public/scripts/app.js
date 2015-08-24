@@ -1,5 +1,5 @@
 $(document).ready(function () {
-    // $(".amount-field").hide();
+    $(".amount-field").hide();
     $(document).on("click", '#amount-label', function(){
       console.log("clicked amount");
       $("#amount-text").show();
