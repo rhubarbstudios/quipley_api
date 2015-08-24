@@ -1,37 +1,139 @@
-<h1>Register</h1>
-<form action="/register" method="POST">
-  <label><%= @need_name %></label>
-  <input type="hidden" name="need_id" value="<%= @need_id %>">
-  <br><br>
-  <label>Merchant Information</label>
-  <input type="text" name="name" placeholder="Merchant Name">
-  <input type="text" name="url" placeholder="Website URL">
-  <label>User Information</label>
-  <input type="text" name="first_name" placeholder="First Name">
-  <input type="text" name="last_name" placeholder="Last Name">
-  <input type="text" name="mobile" placeholder="Phone Number">
-  <input type="text" name="email" placeholder="Email">
-  <input type="password" name="password" placeholder="password">
-  <input type="password" name="password_confirmation" placeholder="password-confirmation">
-  <label>Location Information</label>
-  <input type="text" name="street" placeholder="Street">
-  <input type="text" name="city" placeholder="City">
-  <input type="text" name="state" placeholder="State">
-  <input type="text" name="zip" placeholder="Zip">
-  <label>Commitment</label>
-  <input type="text" name="promised_amount" placeholder="Amount">
-  <input type="text" name="promised_percentage" placeholder="Percentage">
-  <input type="text" name="start_date" placeholder="Start Date">
-  <input type="text" name="end_date" placeholder="End Date">
-  <input type="text" name="product_discount_amount" placeholder="Discount">
-  <input type="submit" value="Submit">
-</form>
+<div id="register">
+  <h2>Register</h2>
+  <h3 class="communitySupport">Community Supporting:</h3>
 
-<style>
-  input {
-    display: block;
-    padding: 5px;
-    margin: 10px 0;
-    width: 200px;
-  }
-</style>
+  <div class="container-fluid">
+    <div class="row">
+      <img class="img-responsive col-xs-12 col-md-6 col-md-offset-3" src="https://files.slack.com/files-pri/T03N9UL8E-F09B9TK0D/special_needs_banner_2x.png?">
+      <h4><%= @need_name %></h4>
+    </div>
+    <form action="/register" method="POST">
+      <input type="hidden" name="need_id" value="<%= @need_id %>">
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <h5>Your Business Name:</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="name" placeholder="Merchant Name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="url" placeholder="Website URL">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <h5>Your Information:</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="first_name" placeholder="First Name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="last_name" placeholder="Last Name">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="mobile" placeholder="Phone Number">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="email" placeholder="Email">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="password" name="password" placeholder="password">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="password" name="password_confirmation" placeholder="password-confirmation">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <h5>Your Location Information:</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="street" placeholder="Street">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="city" placeholder="City">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="state" placeholder="State">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="zip" placeholder="Zip">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <h5>Your Contribution To Community:</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="btn-group form-group col-xs-12 col-md-6 col-md-offset-3" data-toggle="buttons">
+          <label id="amount-label" class="btn btn-default">
+            <input type="radio" name="contribution-type" id="amount" autocomplete="off"> Amount
+          </label>
+          <label id="percentage-label" class="btn btn-default">
+            <input type="radio" name="contribution-type" id="percentage" autocomplete="off"> Percentage
+          </label>
+        </div>
+      </div>
+      <div id="amount-text" class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control amount-field" type="text" name="amount" placeholder="Amount">
+        </div>
+      </div>
+      <div id="percentage-text" class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control amount-field" type="text" name="percentage" placeholder="Percentage">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <h5>Choose Your Event Date:</h5>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="date" name="start_date" placeholder="Start Date">
+        </div>
+      </div>
+      <!-- Only show event date to user. Check DB for submitting dates -->
+        <!-- <div class="row"> -->
+        <!-- <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="date" name="end_date" placeholder="End Date">
+        </div> -->
+        <!-- </div> -->
+<!--       <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control" type="text" name="product_discount_amount" placeholder="Discount">
+        </div>
+      </div> -->
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input class="form-control btn btn-success" type="submit" value="Submit">
+        </div>
+      </div>
+    </form>
+  </div>

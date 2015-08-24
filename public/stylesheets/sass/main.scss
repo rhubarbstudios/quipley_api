@@ -1,0 +1,102 @@
+// VARIABLES
+
+$dark-grey: #61697C;
+$light-grey: #E3E4E8;
+$medium-blue: #1A8DC9;
+
+
+// GENERAL STYLES
+
+h1 {
+  text-align:center;
+  color:$dark-grey;
+}
+
+body {
+  background-color: $light-grey;
+}
+
+// INDEX PAGE
+
+#index {
+
+  .need-item {
+    background-color: $light-grey;
+    border-bottom:1px solid black;
+  }
+
+  .need-icon {
+    width:170px;
+    height:170px;
+    display:inline-block;
+    margin-top:5px;
+  }
+
+  .need-name {
+    margin-left:30px;
+    margin-top:30px;
+    display:inline-block;
+    width:450px;
+    height:150px;
+    vertical-align:top
+  }
+
+  .need-detail {
+    width:170px;
+    height:100px;
+    display:inline-block;
+    border:1px solid black;
+    vertical-align:top;
+    margin-top:20px;
+    color:$dark-grey;
+    padding:20px;
+  }
+
+  a {
+    font-size:25px;
+    text-decoration:none;
+    color: $medium-blue;
+  }
+}
+
+#register {
+
+    h2 {
+      text-align:center;
+      margin-top:100px;
+    }
+
+    form {
+      text-align:center;
+      margin:0 auto;
+    }
+
+    .community-support {
+      vertical-align:top;
+    }
+
+    input {
+      display: block;
+      height: 50px;
+      padding: 5px;
+      margin: 10px 0;
+      width: 250px;
+    }
+
+    input[type=radio] {
+      display: inline;
+      width: 20px;
+    }
+
+    .amount-field {
+      display: inline;
+      height: 30px;
+      width: 74px;
+    }
+
+    .submit {
+      color:white;
+      text-transform:uppercase;
+      font-size:14px;
+    }
+}

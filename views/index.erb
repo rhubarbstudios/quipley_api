@@ -1,5 +1,21 @@
-<h1>Quipley</h1>
-<% @needs.first(10).each do |need| %>
-<a href="/register?need_id=<%= need['id']%>&need_name=<%= need['name'] %>"><%= need['name'] %></a>
-<br><br>
-<% end %>
+<div id="index">
+
+  <% @needs.first(10).each do |need| %>
+  <div class="need-item">
+    <div class="need-icon">
+        <img src="https://files.slack.com/files-pri/T03N9UL8E-F09B9PSQ1/special_needs_icon_2x.png">
+     </div>
+     <div class="need-name">
+        <a href="/register?need_id=<%= need['id']%>&need_name=<%= need['name'] %>">
+          <%= need['name'] %>
+        </a>
+      </div>
+      <div class="need-detail">
+        info<br>
+        address<br>
+        passes
+      </div>
+  </div>
+  <% end %>
+
+</div>
