@@ -4,12 +4,6 @@
       <input type="hidden" name="need_id" value="<%= @need_id %>">
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <label>Choose Your Event Date:</label>
-          <input class="form-control" type="date" name="start_date" placeholder="Start Date" required>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Community Supporting:</label>
         </div>
         <img class="img-responsive col-xs-12 col-md-6 col-md-offset-3" src="https://files.slack.com/files-pri/T03N9UL8E-F09B9TK0D/special_needs_banner_2x.png?">
@@ -19,6 +13,13 @@
           <h5><%= @need_name %></h5>
         </div>
       </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <label>Choose Your Event Date:</label>
+          <input class="form-control" type="date" name="start_date" placeholder="Start Date" required>
+        </div>
+      </div>
+
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Your Business Name:</label>
@@ -49,12 +50,12 @@
         </div>
       </div>
       <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="state" placeholder="State" required data-parsley-error-message="Please fill in the state of your event location.">
+        <div class="form-group col-xs-5 col-md-2 col-md-offset-3">
+            <input class="form-control" type="text" name="state" placeholder="State" required data-parsley-error-message="Please fill in the state of your event location.">
         </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+      <!-- </div>
+      <div class="row"> -->
+        <div class="form-group col-xs-7 col-md-4">
           <input class="form-control" type="text" name="zip" placeholder="Zip" required data-parsley-type="number" data-parsley-minlength="5" data-parsley-maxlength="5">
         </div>
       </div>
@@ -93,7 +94,7 @@
       </div>
       <div id="amount-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="amount" placeholder="$">
+            <input class="form-control" type="text" name="amount" placeholder="$">
         </div>
       </div>
       <div id="percentage-text" class="row amount-field">
