@@ -9,19 +9,59 @@ body {
   background-color: #E3E4E8; }
 
 #index .need-item {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+  -moz-box-pack: justify;
+  box-pack: justify;
+  -webkit-justify-content: space-between;
+  -moz-justify-content: space-between;
+  -ms-justify-content: space-between;
+  -o-justify-content: space-between;
   justify-content: space-between;
+  -ms-flex-pack: justify;
+  -webkit-box-align: center;
+  -moz-box-align: center;
+  box-align: center;
+  -webkit-align-items: center;
+  -moz-align-items: center;
+  -ms-align-items: center;
+  -o-align-items: center;
+  align-items: center;
+  -ms-flex-align: center;
   border-bottom: 1px solid black;
-  padding: 10px 0;
-  align-items: center; }
+  padding: 10px 0; }
 #index .need-img {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 6 auto;
+  -moz-flex: 0 6 auto;
+  -ms-flex: 0 6 auto;
   flex: 0 6 auto; }
   #index .need-img img {
     width: 100%; }
 #index .need-name {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 4 300px;
+  -moz-flex: 0 4 300px;
+  -ms-flex: 0 4 300px;
   flex: 0 4 300px;
   padding: 0 1em; }
 #index .need-detail {
+  -webkit-box-flex: 0;
+  -moz-box-flex: 0;
+  box-flex: 0;
+  -webkit-flex: 0 1 auto;
+  -moz-flex: 0 1 auto;
+  -ms-flex: 0 1 auto;
   flex: 0 1 auto; }
 #index a {
   font-size: 1.2em;

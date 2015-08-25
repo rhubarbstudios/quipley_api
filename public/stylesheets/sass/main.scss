@@ -1,3 +1,7 @@
+// IMPORTS
+
+@import "bourbon/bourbon";
+
 // VARIABLES
 
 $dark-grey: #61697C;
@@ -25,27 +29,27 @@ body {
 #index {
 
   .need-item {
-    display: flex;
-    justify-content: space-between;
+    @include display(flex);
+    @include justify-content(space-between);
+    @include align-items(center);
     border-bottom:1px solid black;
     padding: 10px 0;
-    align-items: center;
   }
 
   .need-img {
-    flex: 0 6 auto;
+    @include flex(0 6 auto);
     img {
       width: 100%;
     }
   }
 
   .need-name {
-    flex: 0 4 300px;
+    @include flex(0 4 300px);
     padding: 0 1em;
   }
 
   .need-detail {
-    flex: 0 1 auto;
+    @include flex(0 1 auto);
   }
 
   a {
