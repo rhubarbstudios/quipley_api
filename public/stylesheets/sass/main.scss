@@ -65,4 +65,7 @@ body {
     font-weight: normal;
     color: $dark-grey;
   }
+  input.parsley-error {
+    border: 1px solid red;
+  }
 }
