@@ -72,5 +72,11 @@ body {
   display: block;
   font-weight: normal;
   color: #61697C; }
+#register .parsley-error {
+  border: 1px solid red; }
+
+.btn-group .parsley-errors-list {
+  float: right;
+  margin-top: 4px; }
 
 /*# sourceMappingURL=main.css.map */

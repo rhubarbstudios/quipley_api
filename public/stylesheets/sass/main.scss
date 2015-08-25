@@ -65,4 +65,13 @@ body {
     font-weight: normal;
     color: $dark-grey;
   }
+  .parsley-error {
+    border: 1px solid red;
+  }
+}
+
+.btn-group .parsley-errors-list {
+    float: right;
+    margin-top: 4px;
+
 }
