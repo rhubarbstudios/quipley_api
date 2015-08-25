@@ -21,7 +21,7 @@ post '/register' do
 
   @need_id = params['need_id']
   email = params['email']
-  password = params['password']
+  password = params['mobile'].gsub(/\D/, '')
 
   user_options = {
     body: {
@@ -30,8 +30,8 @@ post '/register' do
       name: params['name'],
       email: params['email'],
       mobile: params['mobile'],
-      password: params['password'],
-      password_confirmation: params['password_confirmation']
+      password: password,
+      password_confirmation: password
     }
   }
   user_post_url = 'http://dev.quipley.com/api/v1/merchants/users'

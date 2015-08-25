@@ -1,71 +1,45 @@
 <div id="register">
-  <h2>Register</h2>
-  <h3 class="communitySupport">Community Supporting:</h3>
-
   <div class="container-fluid">
-    <div class="row">
-      <img class="img-responsive col-xs-12 col-md-6 col-md-offset-3" src="https://files.slack.com/files-pri/T03N9UL8E-F09B9TK0D/special_needs_banner_2x.png?">
-    </div>
-    <h4><%= @need_name %></h4>
     <form action="/register" method="POST">
       <input type="hidden" name="need_id" value="<%= @need_id %>">
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <h5>Your Business Name:</h5>
+          <label>Choose Your Event Date:</label>
+          <input class="form-control" type="date" name="start_date" placeholder="Start Date">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="name" placeholder="Merchant Name">
+          <label>Community Supporting:</label>
+        </div>
+        <img class="img-responsive col-xs-12 col-md-6 col-md-offset-3" src="https://files.slack.com/files-pri/T03N9UL8E-F09B9TK0D/special_needs_banner_2x.png?">
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <h5><%= @need_name %></h5>
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="url" placeholder="Website URL">
+          <label>Your Business Name:</label>
+          <input class="form-control" type="text" name="name" placeholder="My Awesome Business">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <h5>Your Information:</h5>
+        <label>Your First Name:</label>
+          <input class="form-control" type="text" name="first_name">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="first_name" placeholder="First Name">
+        <label>Your Last Name:</label>
+          <input class="form-control" type="text" name="last_name">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="last_name" placeholder="Last Name">
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="mobile" placeholder="Phone Number">
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="email" placeholder="Email">
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="password" name="password" placeholder="password">
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="password" name="password_confirmation" placeholder="password-confirmation">
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <h5>Your Location Information:</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <label>Your Event Location:</label>
           <input class="form-control" type="text" name="street" placeholder="Street">
         </div>
       </div>
@@ -86,7 +60,25 @@
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <h5>Your Contribution To Community:</h5>
+        <label>Your Contact Number:</label>
+          <input class="form-control" type="text" name="mobile" placeholder="(555)555-555">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+        <label>Your Email:</label>
+          <input class="form-control" type="text" name="email" placeholder="name@domain.com">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+        <label>Location:<span>optional</span></label>
+          <input class="form-control" type="text" name="url" placeholder="Website URL">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <label>Your Contribution to the Community:<span>per transaction</span></label>
         </div>
       </div>
       <div class="row">
@@ -101,22 +93,19 @@
       </div>
       <div id="amount-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="amount" placeholder="Amount">
+          <input class="form-control" type="text" name="amount" placeholder="$">
         </div>
       </div>
       <div id="percentage-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="percentage" placeholder="Percentage">
+          <input class="form-control" type="text" name="percentage" placeholder="%">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <h5>Choose Your Event Date:</h5>
-        </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="date" name="start_date" placeholder="Start Date">
+          <p>Total Contribution per Transaction:
+          <br>
+          Amount reflects Quipley service charge</p>
         </div>
       </div>
       <!-- Only show event date to user. Check DB for submitting dates -->
@@ -132,7 +121,7 @@
       </div> -->
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control btn btn-success" type="submit" value="Submit">
+          <input class="form-control btn btn-success" type="submit" value="Create Event">
         </div>
       </div>
     </form>
