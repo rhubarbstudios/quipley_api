@@ -15,8 +15,7 @@ body {
   padding: 10px 0;
   align-items: center; }
 #index .need-img {
-  flex: 0 10 auto;
-  align-self: center; }
+  flex: 0 6 auto; }
   #index .need-img img {
     width: 100%; }
 #index .need-name {
@@ -25,7 +24,7 @@ body {
 #index .need-detail {
   flex: 0 1 auto; }
 #index a {
-  font-size: 1.4em;
+  font-size: 1.2em;
   text-decoration: none;
   color: #1A8DC9; }
 

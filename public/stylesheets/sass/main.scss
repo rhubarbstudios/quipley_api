@@ -33,8 +33,7 @@ body {
   }
 
   .need-img {
-    flex: 0 10 auto;
-    align-self: center;
+    flex: 0 6 auto;
     img {
       width: 100%;
     }
@@ -50,7 +49,7 @@ body {
   }
 
   a {
-    font-size: 1.4em;
+    font-size: 1.2em;
     text-decoration:none;
     color: $medium-blue;
   }
