@@ -74,5 +74,19 @@ body {
   display: block;
   font-weight: normal;
   color: #61697C; }
+#register .parsley-error {
+  border: 1px solid red;
+  /* list-style: none; */ }
+#register .parsley-errors-list {
+  list-style: none;
+  margin-top: 4px;
+  padding: 0; }
+#register input[type=date] {
+  -webkit-appearance: none;
+  line-height: 1.5em; }
+
+.btn-group .parsley-errors-list {
+  float: right;
+  margin-top: 4px; }
 
 /*# sourceMappingURL=main.css.map */

@@ -1,13 +1,7 @@
 <div id="register">
   <div class="container-fluid">
-    <form action="/register" method="POST">
+    <form action="/register" method="POST" data-parsley-validate>
       <input type="hidden" name="need_id" value="<%= @need_id %>">
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <label>Choose Your Event Date:</label>
-          <input class="form-control" type="date" name="start_date" placeholder="Start Date">
-        </div>
-      </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Community Supporting:</label>
@@ -21,53 +15,60 @@
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <label>Choose Your Event Date:</label>
+          <input class="form-control" type="date" name="start_date" placeholder="Start Date" required>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Your Business Name:</label>
-          <input class="form-control" type="text" name="name" placeholder="My Awesome Business">
+          <input class="form-control" type="text" name="name" placeholder="My Awesome Business" required data-parsley-error-message="Please fill in your business name.">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your First Name:</label>
-          <input class="form-control" type="text" name="first_name">
+          <input class="form-control" type="text" name="first_name" required data-parsley-error-message="Please fill in your first name.">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your Last Name:</label>
-          <input class="form-control" type="text" name="last_name">
+          <input class="form-control" type="text" name="last_name" required data-parsley-error-message="Please fill in your last name.">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Your Event Location:</label>
-          <input class="form-control" type="text" name="street" placeholder="Street">
+          <input class="form-control" type="text" name="street" placeholder="Street" required data-parsley-error-message="Please fill in the street address of your event location.">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="city" placeholder="City">
+          <input class="form-control" type="text" name="city" placeholder="City" required data-parsley-error-message="Please fill in the city of your event location.">
         </div>
       </div>
       <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="state" placeholder="State">
+        <div class="form-group col-xs-5 col-md-2 col-md-offset-3">
+            <input class="form-control" type="text" name="state" placeholder="State" required data-parsley-error-message="Please fill in the state of your event location.">
         </div>
-      </div>
-      <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="zip" placeholder="Zip">
+      <!-- </div>
+      <div class="row"> -->
+        <div class="form-group col-xs-7 col-md-4">
+          <input class="form-control" type="text" name="zip" placeholder="Zip" required data-parsley-type="number" data-parsley-minlength="5" data-parsley-maxlength="5">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your Contact Number:</label>
-          <input class="form-control" type="text" name="mobile" placeholder="(555)555-555">
+          <input class="form-control" type="text" name="mobile" placeholder="6261234567" required data-parsley-type="number" data-parsley-minlength="10" data-parsley-maxlength="10">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your Email:</label>
-          <input class="form-control" type="text" name="email" placeholder="name@domain.com">
+          <input class="form-control" type="text" name="email" placeholder="name@domain.com" required data-parsley-type="email">
         </div>
       </div>
       <div class="row">
@@ -84,7 +85,7 @@
       <div class="row">
         <div class="btn-group form-group col-xs-12 col-md-6 col-md-offset-3" data-toggle="buttons">
           <label id="amount-label" class="btn btn-default">
-            <input type="radio" name="contribution-type" id="amount" autocomplete="off"> Amount
+            <input type="radio" name="contribution-type" id="amount" autocomplete="off" required> Amount
           </label>
           <label id="percentage-label" class="btn btn-default">
             <input type="radio" name="contribution-type" id="percentage" autocomplete="off"> Percentage
@@ -93,7 +94,7 @@
       </div>
       <div id="amount-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="amount" placeholder="$">
+            <input class="form-control" type="text" name="amount" placeholder="$">
         </div>
       </div>
       <div id="percentage-text" class="row amount-field">

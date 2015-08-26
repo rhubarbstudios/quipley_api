@@ -68,4 +68,25 @@ body {
     font-weight: normal;
     color: $dark-grey;
   }
+  .parsley-error {
+    border: 1px solid red;
+    /* list-style: none; */
+  }
+  .parsley-errors-list {
+    list-style: none;
+    margin-top: 4px;
+    padding: 0;
+
+  }
+
+  input[type=date] {
+    -webkit-appearance: none;
+    line-height: 1.5em;
+  }
+}
+
+.btn-group .parsley-errors-list {
+    float: right;
+    margin-top: 4px;
+
 }
