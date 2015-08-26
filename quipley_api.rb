@@ -6,7 +6,8 @@ get '/' do
   url = 'http://dev.quipley.com/api/rhb/needs'
   resp = HTTParty.get(url)
   needs_resp = resp.parsed_response
-  @needs = needs_resp["need"]
+  puts needs_resp
+  @needs = needs_resp["needs"]
 
   erb :index
 end

@@ -1,10 +1,10 @@
 <div id="index">
   <div>
     <% @needs.first(10).each do |need| %>
-    <div class="row col-xs-12 col-md-6 col-md-offset-3">
+    <div class="col-xs-12 col-md-6 col-md-offset-3">
       <div class="need-item">
         <div class="need-img">
-            <img src="https://files.slack.com/files-pri/T03N9UL8E-F09B9PSQ1/special_needs_icon_2x.png">
+            <img src="https://s3.amazonaws.com/quipley-development/images/special_needs_thumb.png">
          </div>
          <div class="need-name">
             <a href="/register?need_id=<%= need['id']%>&need_name=<%= need['name'] %>">
@@ -13,9 +13,7 @@
           </div>
           <div class="need-detail">
             <p>
-              info<br>
-              address<br>
-              passes
+              <%= need['city'] %>, <%= need['state'] %>
             </p>
           </div>
       </div>

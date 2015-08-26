@@ -63,6 +63,8 @@ body {
   -moz-flex: 0 1 auto;
   -ms-flex: 0 1 auto;
   flex: 0 1 auto; }
+  #index .need-detail p {
+    margin: 0; }
 #index a {
   font-size: 1.2em;
   text-decoration: none;
