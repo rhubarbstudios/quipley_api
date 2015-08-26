@@ -50,6 +50,9 @@ body {
 
   .need-detail {
     @include flex(0 1 auto);
+    p {
+      margin: 0;
+    }
   }
 
   a {
