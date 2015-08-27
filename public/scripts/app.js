@@ -28,6 +28,9 @@ $(document).ready(function () {
       var input = $("#user-percentage-input").val();
           $(".total-field-value").text(input*1.25+"%")
     })
+    $(document).on("click", "#form-submit", function() {
+      $(".modal").modal("toggle");
+    })
 
 
 });
