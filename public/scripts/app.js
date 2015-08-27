@@ -7,7 +7,7 @@ $(document).ready(function () {
       $("#amount-text").show();
       $("#percentage-text").hide();
       $("#total-field").show();
-      $("#total-field-value").text("$ ")
+      $(".total-field-value").text("$ ")
       $("#user-amount-input").val("")
     })
     $(document).on("click", '#percentage-label', function(){
@@ -15,17 +15,18 @@ $(document).ready(function () {
       $("#percentage-text").show();
       $("#amount-text").hide();
       $("#total-field").show();
-      $("#total-field-value").text(" %")
+      $(".total-field-value").text(" %")
       $("#user-percentage-input").val("")
     })
 
     $(document).on("keyup", "#user-amount-input", function() {
+      console.log("testing");
       var input = $("#user-amount-input").val();
-          $("#total-field-value").text("$"+input*1.25)
+          $(".total-field-value").text("$"+input*1.25)
     })
     $(document).on("keyup", "#user-percentage-input", function() {
       var input = $("#user-percentage-input").val();
-          $("#total-field-value").text(input*1.25+"%")
+          $(".total-field-value").text(input*1.25+"%")
     })
 
 

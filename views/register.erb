@@ -16,59 +16,59 @@
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Choose Your Event Date:</label>
-          <input class="form-control" type="date" name="start_date" placeholder="Start Date" required>
+          <input id="eventDate" class="form-control" type="date" name="start_date" placeholder="Start Date" required>
         </div>
       </div>
 
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Your Business Name:</label>
-          <input class="form-control" type="text" name="name" placeholder="My Awesome Business" required data-parsley-error-message="Please fill in your business name.">
+          <input id="businessName" class="form-control" type="text" name="name" placeholder="My Awesome Business" required data-parsley-error-message="Please fill in your business name.">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your First Name:</label>
-          <input class="form-control" type="text" name="first_name" required data-parsley-error-message="Please fill in your first name.">
+          <input id="firstName" class="form-control" type="text" name="first_name" required data-parsley-error-message="Please fill in your first name.">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your Last Name:</label>
-          <input class="form-control" type="text" name="last_name" required data-parsley-error-message="Please fill in your last name.">
+          <input id="lastName" class="form-control" type="text" name="last_name" required data-parsley-error-message="Please fill in your last name.">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Your Event Location:</label>
-          <input class="form-control" type="text" name="street" placeholder="Street" required data-parsley-error-message="Please fill in the street address of your event location.">
+          <input id="eventStreet" class="form-control" type="text" name="street" placeholder="Street" required data-parsley-error-message="Please fill in the street address of your event location.">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="city" placeholder="City" required data-parsley-error-message="Please fill in the city of your event location.">
+          <input id="eventCity" class="form-control" type="text" name="city" placeholder="City" required data-parsley-error-message="Please fill in the city of your event location.">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-5 col-md-2 col-md-offset-3">
-            <input class="form-control" type="text" name="state" placeholder="State" required data-parsley-error-message="Please fill in the state of your event location.">
+            <input id="eventState" class="form-control" type="text" name="state" placeholder="State" required data-parsley-error-message="Please fill in the state of your event location.">
         </div>
       <!-- </div>
       <div class="row"> -->
         <div class="form-group col-xs-7 col-md-4">
-          <input class="form-control" type="text" name="zip" placeholder="Zip" required data-parsley-type="number" data-parsley-minlength="5" data-parsley-maxlength="5">
+          <input id="eventZip" class="form-control" type="text" name="zip" placeholder="Zip" required data-parsley-type="number" data-parsley-minlength="5" data-parsley-maxlength="5">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your Contact Number:</label>
-          <input class="form-control" type="text" name="mobile" placeholder="6261234567" required data-parsley-type="number" data-parsley-minlength="10" data-parsley-maxlength="10">
+          <input id="eventContact" class="form-control" type="text" name="mobile" placeholder="6261234567" required data-parsley-type="number" data-parsley-minlength="10" data-parsley-maxlength="10">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your Email:</label>
-          <input class="form-control" type="text" name="email" placeholder="name@domain.com" required data-parsley-type="email">
+          <input id="eventEmail" class="form-control" type="text" name="email" placeholder="name@domain.com" required data-parsley-type="email">
         </div>
       </div>
       <div class="row">
@@ -104,26 +104,66 @@
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <p id="total-field">Total Contribution: <span id="total-field-value"> </span> per transaction
+          <p id="total-field">Total Contribution: <span class="total-field-value"> </span> per transaction
           <br>
           Amount reflects Quipley service charge</p>
         </div>
       </div>
-      <!-- Only show event date to user. Check DB for submitting dates -->
-        <!-- <div class="row"> -->
-        <!-- <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="date" name="end_date" placeholder="End Date">
-        </div> -->
-        <!-- </div> -->
-<!--       <div class="row">
-        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" type="text" name="product_discount_amount" placeholder="Discount">
-        </div>
-      </div> -->
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control btn btn-success" type="submit" value="Create Event">
+
+          <button type="button" class="form-control btn btn-success" data-toggle="modal" data-target="#myModal" onclick="myFunction()">
+            Create Event
+          </button>
+          <!-- <input class="form-control btn btn-success" type="submit" value="Create Event"> -->
         </div>
       </div>
     </form>
   </div>
+
+
+
+
+  <!-- Button trigger modal -->
+  <!-- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" onclick="myFunction()">
+    Create Event
+  </button> -->
+
+  <!-- Modal -->
+  <div class="modal fade full-page" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel">Preview</h4>
+        </div>
+        <div class="modal-body">
+          <label>Community Supporting:</label> <span><%= @need_name %></span><br>
+          <label>Choose Your Event Date:</label> <span id="field-0"></span><br>
+          <label>Your Business Name:</label>  <span id="field-1"></span><br>
+          <label>Your First Name:</label> <span id="field-2"></span><br>
+          <label>Your Last Name:</label> <span id="field-3"></span><br>
+          <label>Event Location:</label> <span id="field-4"></span><br>
+            <span id="field-5"></span><br>
+            <span id="field-6"></span> <span id="field-7"></span><br>
+          <label>Your Contact:</label> <span id="field-8"></span><br>
+          <label>Your Email:</label> <span id="field-9"></span><br>
+          <label>Total Contribution:</label> <span class="total-field-value"></span><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Edit</button>
+          <input class="btn btn-success" type="submit" value="Confirm">
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+  function myFunction() {
+      var userResponseArray = ["eventDate","businessName", "firstName", "lastName", "eventStreet", "eventCity", "eventState", "eventZip", "eventContact", "eventEmail"]
+      for (var i = 0; i < userResponseArray.length; i++) {
+          document.getElementById("field-" + i  ).innerHTML = document.getElementById(userResponseArray[i]).value;
+      }
+  }
+  </script>
