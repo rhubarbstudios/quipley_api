@@ -1,6 +1,6 @@
 <div id="register">
   <div class="container-fluid">
-    <form action="/register" method="POST" data-parsley-validate>
+    <form action="/register" method="POST" id="form" data-parsley-validate>
       <input type="hidden" name="need_id" value="<%= @need_id %>">
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
@@ -112,7 +112,7 @@
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
 
-          <button type="button" class="form-control btn btn-success" data-toggle="modal" data-target="#myModal" onclick="myFunction()">
+          <button type="button" id="create-event" class="form-control btn btn-success" data-toggle="modal" data-target="#myModal" onclick="myFunction()">
             Create Event
           </button>
           <!-- <input class="form-control btn btn-success" type="submit" value="Create Event"> -->
@@ -164,6 +164,7 @@
 
   <script>
   function myFunction() {
+
       var userResponseArray = ["eventDate","businessName", "firstName", "lastName", "eventStreet", "eventCity", "eventState", "eventZip", "eventContact", "eventEmail"]
       for (var i = 0; i < userResponseArray.length; i++) {
           document.getElementById("field-" + i  ).innerHTML = document.getElementById(userResponseArray[i]).value;
