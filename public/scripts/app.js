@@ -32,11 +32,11 @@ $(document).ready(function () {
       $(".modal").modal("toggle");
     })
 
-    $('input').on('focus blur', toggleFocus);
-    var form = document.getElementById('form');
-    function toggleFocus(e){
-      console.log(form)
-        e.type == 'blur' ? form.parsley() : null
-    }
+    // $('input').on('focus blur', toggleFocus);
+    // var form = document.getElementById('form');
+    // function toggleFocus(e){
+    //   console.log(form)
+    //     e.type == 'blur' ? form.parsley() : null
+    // }
 
 });
