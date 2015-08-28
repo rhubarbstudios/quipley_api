@@ -22,6 +22,10 @@ h1 {
 
 body {
   background-color: $light-grey;
+  font-style: 16px;
+  @media only screen and (max-width: 480px) {
+    font-size: 12px;
+  }
 }
 
 // INDEX PAGE
