@@ -1,12 +1,12 @@
 require 'sinatra'
 require 'httparty'
+require 'madison'
 
 
 get '/' do
   url = 'http://dev.quipley.com/api/rhb/needs'
   resp = HTTParty.get(url)
   needs_resp = resp.parsed_response
-  puts needs_resp
   @needs = needs_resp["needs"]
 
   erb :index
@@ -89,15 +89,19 @@ post '/register' do
         promised_amount: params['promised_amount'],
         promised_percentage: params['promised_percentage'],
         start_date: params['start_date'],
-        end_date: params['end_date'],
+        end_date: params['start_date'],
+        # what is product_discount_amount?
         product_discount_amount: params['product_discount_amount']
       },
       headers: {
         'Cookie' => session_cookie
       }
     }
+    puts "OPTIONS"
+    puts program_options
     program_resp = HTTParty.post(programs_post_url, program_options)
-
+    puts "RESPONSE"
+    puts program_resp
   end
 
   redirect "/"

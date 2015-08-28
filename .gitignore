@@ -1,5 +1,7 @@
 .DS_Store
 /log
 /tmp
+/.sass-cache
 /public/.sass-cache
 /public/stylesheets/.sass-cache
+main.css.map

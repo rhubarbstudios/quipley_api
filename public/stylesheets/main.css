@@ -6,7 +6,11 @@ h1 {
     text-decoration: none; }
 
 body {
-  background-color: #E3E4E8; }
+  background-color: #E3E4E8;
+  font-style: 16px; }
+  @media only screen and (max-width: 480px) {
+    body {
+      font-size: 12px; } }
 
 #index .need-item {
   display: -webkit-box;
