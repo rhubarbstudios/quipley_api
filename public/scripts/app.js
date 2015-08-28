@@ -39,14 +39,25 @@ $(document).ready(function () {
           $(".user-input-value").text(inputValue+"%");
     })
     $(document).on("click", "#form-submit", function() {
-      $(".modal").modal("toggle");
+      $(".registerModal").modal("toggle");
     })
 
-    // $('input').on('focus blur', toggleFocus);
-    // var form = document.getElementById('form');
-    // function toggleFocus(e){
-    //   console.log(form)
-    //     e.type == 'blur' ? form.parsley() : null
-    // }
+    var getUrlParameter = function getUrlParameter(sParam) {
+      var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+          sURLVariables = sPageURL.split('&'),
+          sParameterName,
+          i;
+      for (i = 0; i < sURLVariables.length; i++) {
+          sParameterName = sURLVariables[i].split('=');
+          if (sParameterName[0] === sParam) {
+              return sParameterName[1] === undefined ? true : sParameterName[1];
+          }
+      }
+    };
+
+    if (getUrlParameter('confirm')) {
+      $(".successModal").modal("toggle");
+      console.log("Peter55555555");
+    }
 
 });

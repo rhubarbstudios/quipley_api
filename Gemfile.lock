@@ -9,6 +9,8 @@ GEM
       json
     multi_xml (0.5.5)
     rack (1.6.4)
+    rack-flash3 (1.0.5)
+      rack
     rack-protection (1.5.3)
       rack
     sinatra (1.4.6)
@@ -23,4 +25,8 @@ PLATFORMS
 DEPENDENCIES
   httparty
   madison
+  rack-flash3
   sinatra
+
+BUNDLED WITH
+   1.10.6

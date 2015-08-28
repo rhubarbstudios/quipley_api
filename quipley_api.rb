@@ -3,11 +3,16 @@ require 'httparty'
 require 'madison'
 
 
+
 get '/' do
   url = 'http://dev.quipley.com/api/rhb/needs'
   resp = HTTParty.get(url)
   needs_resp = resp.parsed_response
   @needs = needs_resp["needs"]
+
+  if params['confirm']
+    @success_message = "Thank You! You will receive an email notification shortly about your event."
+  end
 
   erb :index
 end
@@ -105,5 +110,5 @@ post '/register' do
     puts program_resp
   end
 
-  redirect "/"
+  redirect "/?confirm=true"
 end
