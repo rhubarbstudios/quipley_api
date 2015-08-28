@@ -5,6 +5,7 @@ require 'madison'
 
 config_file 'config.yml'
 
+
 get '/' do
   puts settings.api_url
   url = settings.api_url + "rhb/needs"
@@ -14,6 +15,10 @@ get '/' do
   @needs = needs_resp["needs"]
   if settings.development?
     @needs = @needs.first(5)
+  end
+
+  if params['confirm']
+    @success_message = "Thank You! You will receive an email notification shortly about your event."
   end
 
   erb :index
@@ -112,5 +117,5 @@ post '/register' do
     puts program_resp
   end
 
-  redirect "/"
+  redirect "/?confirm=true"
 end

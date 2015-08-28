@@ -93,4 +93,8 @@ body {
   float: right;
   margin-top: 4px; }
 
+.successModal {
+  top: 35%;
+  outline: none; }
+
 /*# sourceMappingURL=main.css.map */
