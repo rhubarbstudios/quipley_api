@@ -1,6 +1,6 @@
 <div id="register">
   <div class="container-fluid">
-    <form action="/register" method="POST" data-parsley-validate>
+    <form action="/register" method="POST" id="form" data-parsley-validate>
       <input type="hidden" name="need_id" value="<%= @need_id %>">
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
@@ -16,59 +16,59 @@
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Choose Your Event Date:</label>
-          <input id="eventDate" class="form-control" type="date" name="start_date" placeholder="Start Date" required>
+          <input id="eventDate" class="form-control" type="date" name="start_date" placeholder="Start Date" required data-parsley-trigger="blur">
         </div>
       </div>
 
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Your Business Name:</label>
-          <input id="businessName" class="form-control" type="text" name="name" placeholder="My Awesome Business" required data-parsley-error-message="Please fill in your business name.">
+          <input id="businessName" class="form-control" type="text" name="name" placeholder="My Awesome Business" required data-parsley-error-message="Please fill in your business name." data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your First Name:</label>
-          <input id="firstName" class="form-control" type="text" name="first_name" required data-parsley-error-message="Please fill in your first name.">
+          <input id="firstName" class="form-control" type="text" name="first_name" required data-parsley-error-message="Please fill in your first name." data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your Last Name:</label>
-          <input id="lastName" class="form-control" type="text" name="last_name" required data-parsley-error-message="Please fill in your last name.">
+          <input id="lastName" class="form-control" type="text" name="last_name" required data-parsley-error-message="Please fill in your last name." data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Your Event Location:</label>
-          <input id="eventStreet" class="form-control" type="text" name="street" placeholder="Street" required data-parsley-error-message="Please fill in the street address of your event location.">
+          <input id="eventStreet" class="form-control" type="text" name="street" placeholder="Street" required data-parsley-error-message="Please fill in the street address of your event location." data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input id="eventCity" class="form-control" type="text" name="city" placeholder="City" required data-parsley-error-message="Please fill in the city of your event location.">
+          <input id="eventCity" class="form-control" type="text" name="city" placeholder="City" required data-parsley-error-message="Please fill in the city of your event location." data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-5 col-md-2 col-md-offset-3">
-            <input id="eventState" class="form-control" type="text" name="state" placeholder="State" required data-parsley-error-message="Please fill in the state of your event location.">
+            <input id="eventState" class="form-control" type="text" name="state" placeholder="State" required data-parsley-error-message="Please fill in the state of your event location." data-parsley-trigger="blur">
         </div>
       <!-- </div>
       <div class="row"> -->
         <div class="form-group col-xs-7 col-md-4">
-          <input id="eventZip" class="form-control" type="text" name="zip" placeholder="Zip" required data-parsley-type="number" data-parsley-minlength="5" data-parsley-maxlength="5">
+          <input id="eventZip" class="form-control" type="text" name="zip" placeholder="Zip" required data-parsley-type="number" data-parsley-minlength="5" data-parsley-maxlength="5" data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your Contact Number:</label>
-          <input id="eventContact" class="form-control" type="text" name="mobile" placeholder="6261234567" required data-parsley-type="number" data-parsley-minlength="10" data-parsley-maxlength="10">
+          <input id="eventContact" class="form-control" type="text" name="mobile" placeholder="6261234567" required data-parsley-type="number" data-parsley-minlength="10" data-parsley-maxlength="10" data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
         <label>Your Email:</label>
-          <input id="eventEmail" class="form-control" type="text" name="email" placeholder="name@domain.com" required data-parsley-type="email">
+          <input id="eventEmail" class="form-control" type="text" name="email" placeholder="name@domain.com" required data-parsley-type="email" data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
@@ -85,21 +85,21 @@
       <div class="row">
         <div class="btn-group form-group col-xs-12 col-md-6 col-md-offset-3" data-toggle="buttons">
           <label id="amount-label" class="btn btn-default">
-            <input type="radio" name="contribution-type" id="amount" autocomplete="off" required> Amount
+            <input type="radio" name="contribution-type" id="amount" value="amount" autocomplete="off" required data-parsley-trigger="blur"> Amount
           </label>
           <label id="percentage-label" class="btn btn-default">
-            <input type="radio" name="contribution-type" id="percentage" autocomplete="off"> Percentage
+            <input type="radio" name="contribution-type" id="percentage" value="percentage" autocomplete="off"> Percentage
           </label>
         </div>
       </div>
       <div id="amount-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-            <input class="form-control" id="user-amount-input" type="text" name="amount" placeholder="$">
+            <input class="form-control" id="user-amount-input" type="text" name="amount" placeholder="$" data-parsley-conditionalrequired='["[name=\"contribution-type\"]:checked", "amount"]' data-parsley-validate-if-empty data-parsley-success-class="" data-parsley-conditionalrequired-message="Please put in the contribution amount!" data-parsley-trigger="blur">
         </div>
       </div>
       <div id="percentage-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" id="user-percentage-input" type="text" name="percentage" placeholder="%">
+          <input class="form-control" id="user-percentage-input" type="text" name="percentage" placeholder="%" data-parsley-conditionalrequired='["[name=\"contribution-type\"]:checked", "percentage"]' data-parsley-validate-if-empty data-parsley-success-class="" data-parsley-conditionalrequired-message="Please put in the contribution percentage!" data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
@@ -112,14 +112,14 @@
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
 
-          <button type="button" class="form-control btn btn-success" data-toggle="modal" data-target="#myModal" onclick="myFunction()">
+          <button type="button" id="create-event" class="form-control btn btn-success" data-toggle="modal" data-target="#myModal" onclick="myFunction()">
             Create Event
           </button>
           <!-- <input class="form-control btn btn-success" type="submit" value="Create Event"> -->
         </div>
       </div>
 
-      <div class="modal fade full-page" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
             <div class="modal-header">
@@ -127,7 +127,7 @@
             </div>
             <div class="modal-body">
               <label>Community Supporting:</label><br>
-              <span><%= @need_name %></span><br>
+              <span><%= @need_name %></span><br><br>
               <label>Choose Your Event Date:</label> <span id="field-0"></span><br>
               <label>Your Business Name:</label>  <span id="field-1"></span><br>
               <label>Your First Name:</label> <span id="field-2"></span><br>
@@ -163,7 +163,25 @@
 
 
   <script>
+
+  window.ParsleyConfig = {
+    validators: {
+      conditionalrequired: {
+        fn: function (value, requirements) {
+          // if requirements[0] value does not meet requirements[1] expectation, field is required
+          if (requirements[1] == $(requirements[0]).val() && '' == value)
+          return false;
+
+          return true;
+        },
+        priority: 32
+      }
+    }
+  };
+
+
   function myFunction() {
+
       var userResponseArray = ["eventDate","businessName", "firstName", "lastName", "eventStreet", "eventCity", "eventState", "eventZip", "eventContact", "eventEmail"]
       for (var i = 0; i < userResponseArray.length; i++) {
           document.getElementById("field-" + i  ).innerHTML = document.getElementById(userResponseArray[i]).value;
