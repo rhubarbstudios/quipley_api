@@ -20,13 +20,23 @@ $(document).ready(function () {
     })
 
     $(document).on("keyup", "#user-amount-input", function() {
-      console.log("testing");
+      // console.log("testing");
       var input = $("#user-amount-input").val();
-          $(".total-field-value").text("$"+input*1.25)
+          var inputValue = parseFloat(input);
+          var serviceCharge = inputValue * 0.25;
+          var totalFee = inputValue + serviceCharge;
+          $(".total-field-value").text("$"+totalFee);
+          $(".service-charge-value").text("$"+serviceCharge);
+          $(".user-input-value").text("$"+inputValue);
     })
     $(document).on("keyup", "#user-percentage-input", function() {
-      var input = $("#user-percentage-input").val();
-          $(".total-field-value").text(input*1.25+"%")
+          var input = $("#user-percentage-input").val();
+          var inputValue = parseFloat(input);
+          var serviceCharge = inputValue * 0.25;
+          var totalFee = inputValue + serviceCharge;
+          $(".total-field-value").text(totalFee+"%");
+          $(".service-charge-value").text(serviceCharge+"%");
+          $(".user-input-value").text(inputValue+"%");
     })
     $(document).on("click", "#form-submit", function() {
       $(".modal").modal("toggle");
