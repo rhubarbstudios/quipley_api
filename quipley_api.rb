@@ -1,21 +1,20 @@
 require 'sinatra'
+require 'sinatra/config_file'
 require 'httparty'
 require 'madison'
 
-configure :production do
-  set :api_url, 'http://alpha.quipley.com/api/'
-end
-
-configure :development do
-  set :api_url, 'http://dev.quipley.com/api/'
-end
-
+config_file 'config.yml'
 
 get '/' do
+  puts settings.api_url
   url = settings.api_url + "rhb/needs"
+  puts url
   resp = HTTParty.get(url)
   needs_resp = resp.parsed_response
   @needs = needs_resp["needs"]
+  if settings.development?
+    @needs = @needs.first(5)
+  end
 
   erb :index
 end
