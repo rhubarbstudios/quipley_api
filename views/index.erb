@@ -14,7 +14,7 @@
             <div class="need-detail">
               <p>
                 <b><%= need['community_name'] %></b><br>
-                <%= need['city'] %>, <% if need['state'].length > 2 %><%= Madison.get_abbrev need['state'] %><% end %>
+                <%= need['city'] %>, <% if need['state'] != nil %><% if need['state'].length > 2 %><%= Madison.get_abbrev need['state'] %> <% else %> <%= need['state']%><% end %><% end %>
               </p>
             </div>
         </div>
