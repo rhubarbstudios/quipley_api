@@ -1,5 +1,6 @@
 require 'sinatra'
 require 'httparty'
+require 'madison'
 
 
 get '/' do
