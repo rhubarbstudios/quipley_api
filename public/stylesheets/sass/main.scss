@@ -37,19 +37,19 @@ body {
   }
 
   .need-img {
-    @include flex(0 6 auto);
+    @include flex(0 3 150px);
     img {
       width: 100%;
     }
   }
 
   .need-name {
-    @include flex(0 4 300px);
+    @include flex(0 2 300px);
     padding: 0 1em;
   }
 
   .need-detail {
-    @include flex(0 1 auto);
+    @include flex(0 3 200px);
     p {
       margin: 0;
     }
