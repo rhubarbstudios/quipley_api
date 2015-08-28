@@ -85,21 +85,21 @@
       <div class="row">
         <div class="btn-group form-group col-xs-12 col-md-6 col-md-offset-3" data-toggle="buttons">
           <label id="amount-label" class="btn btn-default">
-            <input type="radio" name="contribution-type" id="amount" autocomplete="off" required data-parsley-trigger="blur"> Amount
+            <input type="radio" name="contribution-type" id="amount" value="amount" autocomplete="off" required data-parsley-trigger="blur"> Amount
           </label>
           <label id="percentage-label" class="btn btn-default">
-            <input type="radio" name="contribution-type" id="percentage" autocomplete="off"> Percentage
+            <input type="radio" name="contribution-type" id="percentage" value="percentage" autocomplete="off"> Percentage
           </label>
         </div>
       </div>
       <div id="amount-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-            <input class="form-control" id="user-amount-input" type="text" name="amount" placeholder="$">
+            <input class="form-control" id="user-amount-input" type="text" name="amount" placeholder="$" data-parsley-conditionalrequired='["[name=\"contribution-type\"]:checked", "amount"]' data-parsley-validate-if-empty data-parsley-success-class="" data-parsley-conditionalrequired-message="Please put in the contribution amount!" data-parsley-trigger="blur">
         </div>
       </div>
       <div id="percentage-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" id="user-percentage-input" type="text" name="percentage" placeholder="%">
+          <input class="form-control" id="user-percentage-input" type="text" name="percentage" placeholder="%" data-parsley-conditionalrequired='["[name=\"contribution-type\"]:checked", "percentage"]' data-parsley-validate-if-empty data-parsley-success-class="" data-parsley-conditionalrequired-message="Please put in the contribution percentage!" data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
@@ -163,6 +163,23 @@
 
 
   <script>
+
+  window.ParsleyConfig = {
+    validators: {
+      conditionalrequired: {
+        fn: function (value, requirements) {
+          // if requirements[0] value does not meet requirements[1] expectation, field is required
+          if (requirements[1] == $(requirements[0]).val() && '' == value)
+          return false;
+
+          return true;
+        },
+        priority: 32
+      }
+    }
+  };
+
+
   function myFunction() {
 
       var userResponseArray = ["eventDate","businessName", "firstName", "lastName", "eventStreet", "eventCity", "eventState", "eventZip", "eventContact", "eventEmail"]
