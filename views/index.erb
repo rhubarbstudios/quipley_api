@@ -7,7 +7,7 @@
             <img src="https://s3.amazonaws.com/quipley-<%= settings.environment %>/images/<%= need['id'] %>_thumb.png">
          </div>
          <div class="need-name">
-            <a href="/register?need_id=<%= need['id']%>&need_name=<%= need['name'] %>">
+            <a href="/register?need_id=<%= need['id']%>&need_name=<%= need['name']%>&need_community_name=<%= need['community_name']%>">
               <%= need['name'] %>
             </a>
           </div>
