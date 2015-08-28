@@ -1,1 +1,1 @@
-web: bundle exec ruby quipley_api.rb -p $PORT
+web: bundle exec ruby quipley_api.rb -p $PORT -E $RACK_ENV
