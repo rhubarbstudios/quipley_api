@@ -6,7 +6,8 @@
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
           <label>Community Supporting:</label>
         </div>
-        <img class="img-responsive col-xs-12 col-md-6 col-md-offset-3" src="https://s3.amazonaws.com/quipley-development/images/special_needs_thumb.png">
+        <img class="img-responsive col-xs-12 col-md-6 col-md-offset-3"
+         src="https://s3.amazonaws.com/quipley-development/images/<%= @need_id %>_thumb.png">
       </div>
       <div class="row">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
@@ -53,8 +54,6 @@
         <div class="form-group col-xs-5 col-md-2 col-md-offset-3">
             <input id="eventState" class="form-control" type="text" name="state" placeholder="State" required data-parsley-error-message="Please fill in the state of your event location.">
         </div>
-      <!-- </div>
-      <div class="row"> -->
         <div class="form-group col-xs-7 col-md-4">
           <input id="eventZip" class="form-control" type="text" name="zip" placeholder="Zip" required data-parsley-type="number" data-parsley-minlength="5" data-parsley-maxlength="5">
         </div>
@@ -94,12 +93,12 @@
       </div>
       <div id="amount-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-            <input class="form-control" id="user-amount-input" type="text" name="amount" placeholder="$">
+            <input class="form-control" id="user-amount-input" type="text" name="promised_amount" placeholder="$">
         </div>
       </div>
       <div id="percentage-text" class="row amount-field">
         <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
-          <input class="form-control" id="user-percentage-input" type="text" name="percentage" placeholder="%">
+          <input class="form-control" id="user-percentage-input" type="text" name="promised_percentage" placeholder="%">
         </div>
       </div>
       <div class="row">
