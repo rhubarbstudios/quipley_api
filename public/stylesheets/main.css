@@ -40,29 +40,29 @@ body {
   -webkit-box-flex: 0;
   -moz-box-flex: 0;
   box-flex: 0;
-  -webkit-flex: 0 6 auto;
-  -moz-flex: 0 6 auto;
-  -ms-flex: 0 6 auto;
-  flex: 0 6 auto; }
+  -webkit-flex: 0 3 150px;
+  -moz-flex: 0 3 150px;
+  -ms-flex: 0 3 150px;
+  flex: 0 3 150px; }
   #index .need-img img {
     width: 100%; }
 #index .need-name {
   -webkit-box-flex: 0;
   -moz-box-flex: 0;
   box-flex: 0;
-  -webkit-flex: 0 4 300px;
-  -moz-flex: 0 4 300px;
-  -ms-flex: 0 4 300px;
-  flex: 0 4 300px;
+  -webkit-flex: 0 2 300px;
+  -moz-flex: 0 2 300px;
+  -ms-flex: 0 2 300px;
+  flex: 0 2 300px;
   padding: 0 1em; }
 #index .need-detail {
   -webkit-box-flex: 0;
   -moz-box-flex: 0;
   box-flex: 0;
-  -webkit-flex: 0 1 auto;
-  -moz-flex: 0 1 auto;
-  -ms-flex: 0 1 auto;
-  flex: 0 1 auto; }
+  -webkit-flex: 0 3 200px;
+  -moz-flex: 0 3 200px;
+  -ms-flex: 0 3 200px;
+  flex: 0 3 200px; }
   #index .need-detail p {
     margin: 0; }
 #index a {
