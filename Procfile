@@ -1,0 +1,1 @@
+web: bundle exec ruby quipley_api.rb -p $PORT
