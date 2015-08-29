@@ -1,6 +1,0 @@
-development:
-  api_url: http://dev.quipley.com/api/
-test:
-  api_url: http://dev.quipley.com/api/
-production:
-  api_url: http://alpha.quipley.com/api/
