@@ -1,7 +1,6 @@
 require 'sinatra'
 require 'httparty'
 require 'madison'
-require 'tilt/erubis'
 require 'dotenv'
 Dotenv.load
 
