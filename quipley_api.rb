@@ -1,18 +1,13 @@
 require 'sinatra'
 require 'httparty'
 require 'madison'
+require 'tilt/erubis'
 require 'dotenv'
 Dotenv.load
 
-if ENV['API_URL'] == development
-  @api_url = 'http://dev.quipley.com/api/'
-else
-  @api_url = 'http://alpha.quipley.com/api/'
-end
-
 get '/' do
-  puts @api_url
-  url = @api_url + "rhb/needs"
+  puts ENV['API_URL']
+  url = ENV['API_URL'] + "rhb/needs"
   puts url
   resp = HTTParty.get(url)
   needs_resp = resp.parsed_response
@@ -52,7 +47,7 @@ post '/register' do
       password_confirmation: password
     }
   }
-  user_post_url = @api_url + "v1/merchants/users"
+  user_post_url = ENV['API_URL'] + "v1/merchants/users"
   user_resp = HTTParty.post(user_post_url, user_options)
   user_resp_parsed = user_resp.parsed_response
 
@@ -61,12 +56,12 @@ post '/register' do
   merchant_id = user_resp_parsed['data']['merchant']['id']
   activation_code = user_resp_parsed['data']['activationCode']
 
-  activate_post_url = @api_url + "v1/activate/#{user_id}/#{activation_code}"
+  activate_post_url = ENV['API_URL'] + "v1/activate/#{user_id}/#{activation_code}"
   activate_resp = HTTParty.put(activate_post_url)
   activate_resp_parsed = activate_resp.parsed_response
 
 
-  login_url = @api_url + "v1/users/authenticate"
+  login_url = ENV['API_URL'] + "v1/users/authenticate"
   login_options = {
     body: {
       email: email,
@@ -77,7 +72,7 @@ post '/register' do
   session_cookie = login_resp.headers['set-cookie']
 
   if activate_resp_parsed['status']['code'] == 200
-    locations_post_url = @api_url + "v1/merchants/#{merchant_id}/locations"
+    locations_post_url = ENV['API_URL'] + "v1/merchants/#{merchant_id}/locations"
     location_options = {
       body: {
         address_line_1: params['street'],
@@ -98,7 +93,7 @@ post '/register' do
   end
 
   if location_resp.code == 200
-    programs_post_url = @api_url + "v1/needs/#{@need_id}/programs"
+    programs_post_url = ENV['API_URL'] + "v1/needs/#{@need_id}/programs"
     program_options = {
       body: {
         location_id: location_id,
