@@ -16,7 +16,7 @@ get '/' do
   end
 
   if params['confirm']
-    @success_message = "Thank You! You will receive an email notification shortly about your event."
+    @success_message = "Thank You! You will receive an SMS notification shortly about your event."
   end
 
   erb :index
