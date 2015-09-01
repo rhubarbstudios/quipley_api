@@ -50,6 +50,11 @@ post '/register' do
   user_resp = HTTParty.post(user_post_url, user_options)
   user_resp_parsed = user_resp.parsed_response
 
+  puts "-----------------------------------------------------"
+  puts "NEW USER POST RESPONSE"
+  puts user_resp_parsed
+  puts "-----------------------------------------------------"
+
 
   user_id = user_resp_parsed['data']['user']['id']
   merchant_id = user_resp_parsed['data']['merchant']['id']
@@ -70,6 +75,11 @@ post '/register' do
   login_resp = HTTParty.post(login_url, login_options)
   session_cookie = login_resp.headers['set-cookie']
 
+  puts "-----------------------------------------------------"
+  puts "ACTIVATED USER RESPONSE"
+  puts activate_resp_parsed['status']['code']
+  puts "-----------------------------------------------------"
+
   if activate_resp_parsed['status']['code'] == 200
     locations_post_url = ENV['API_URL'] + "v1/merchants/#{merchant_id}/locations"
     location_options = {
@@ -89,31 +99,40 @@ post '/register' do
     location_resp_parsed = location_resp.parsed_response
     location_id = location_resp_parsed['data']['id']
 
+    puts "-----------------------------------------------------"
+    puts "LOCATION POST RESPONSE"
+    puts location_resp_parsed
+    puts "-----------------------------------------------------"
+
+    if location_resp.code == 200
+      programs_post_url = ENV['API_URL'] + "v1/needs/#{@need_id}/programs"
+      program_options = {
+        body: {
+          location_id: location_id,
+          name: params['name'],
+          promised_amount: params['promised_amount'],
+          promised_percentage: params['promised_percentage'],
+          start_date: params['start_date'],
+          end_date: params['start_date'],
+          # what is product_discount_amount?
+          product_discount_amount: params['product_discount_amount']
+        },
+        headers: {
+          'Cookie' => session_cookie
+        }
+      }
+
+      program_resp = HTTParty.post(programs_post_url, program_options)
+
+      puts "-----------------------------------------------------"
+      puts "RESPONSE"
+      puts program_resp
+      puts "-----------------------------------------------------"
+    end
+
   end
 
-  if location_resp.code == 200
-    programs_post_url = ENV['API_URL'] + "v1/needs/#{@need_id}/programs"
-    program_options = {
-      body: {
-        location_id: location_id,
-        name: params['name'],
-        promised_amount: params['promised_amount'],
-        promised_percentage: params['promised_percentage'],
-        start_date: params['start_date'],
-        end_date: params['start_date'],
-        # what is product_discount_amount?
-        product_discount_amount: params['product_discount_amount']
-      },
-      headers: {
-        'Cookie' => session_cookie
-      }
-    }
-    puts "OPTIONS"
-    puts program_options
-    program_resp = HTTParty.post(programs_post_url, program_options)
-    puts "RESPONSE"
-    puts program_resp
-  end
+
 
   redirect "/?confirm=true"
 end
