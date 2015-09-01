@@ -42,7 +42,8 @@ post '/register' do
 
   def fail_redirect(reason)
     puts "REASON FOR FAIL:"
-    puts reason
+    $reason = reason
+    puts @reason
     puts "-----------------"
     redirect "/?confirm=false"
   end
@@ -76,7 +77,7 @@ post '/register' do
       activate_user(user_id, activation_code, email, password, merchant_id)
     else
       puts "CREATE USER FAILED"
-      fail_redirect(user_resp_parsed['status']['code'])
+      fail_redirect("Could not create user")
     end
 
   end
@@ -106,7 +107,7 @@ post '/register' do
       create_location(merchant_id, session_cookie)
     else
       puts "ACTIVATE USER FAILED"
-      fail_redirect(login_resp_parsed['status']['code'])
+      fail_redirect("Could not activate user")
     end
 
   end
@@ -119,7 +120,7 @@ post '/register' do
         city: params['city'],
         state: params['state'],
         postal_code: params['zip'],
-        country: 'USA'
+        country: params['country']
       },
       headers: {
         'Cookie' => session_cookie
@@ -139,7 +140,7 @@ post '/register' do
       create_program(@need_id, location_id, session_cookie)
     else
       puts "CREATE LOCATION FAILED"
-      fail_redirect(location_resp_parsed['status']['code'])
+      fail_redirect("Could not create location")
     end
 
   end
@@ -174,7 +175,7 @@ post '/register' do
       redirect "/?confirm=true"
     else
       puts "CREATE PROGRAM FAILED"
-      fail_redirect(program_resp_parsed['status']['code'])
+      fail_redirect("Could not create program")
     end
 
   end

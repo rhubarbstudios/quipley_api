@@ -56,7 +56,12 @@
             <input id="eventState" class="form-control" type="text" name="state" placeholder="State" required data-parsley-error-message="Please fill in the state of your event location." data-parsley-trigger="blur">
         </div>
         <div class="form-group col-xs-7 col-md-4">
-          <input id="eventZip" class="form-control" type="text" name="zip" placeholder="Zip" required data-parsley-type="number" data-parsley-minlength="5" data-parsley-maxlength="5" data-parsley-trigger="blur">
+          <input id="eventZip" class="form-control" type="text" name="zip" placeholder="Zip" required data-parsley-minlength="5" data-parsley-maxlength="6" data-parsley-trigger="blur">
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-xs-12 col-md-6 col-md-offset-3">
+          <input id="eventCountry" class="form-control" type="text" name="country" placeholder="Country" required data-parsley-error-message="Please fill in the country of your event location." data-parsley-trigger="blur">
         </div>
       </div>
       <div class="row">
@@ -186,11 +191,10 @@
   };
 
   function myFunction() {
-
-      var userResponseArray = ["eventDate","businessName", "firstName", "lastName", "eventStreet", "eventCity", "eventState", "eventZip", "eventContact", "eventEmail"]
-      for (var i = 0; i < userResponseArray.length; i++) {
-          document.getElementById("field-" + i  ).innerHTML = document.getElementById(userResponseArray[i]).value;
-      }
+    var userResponseArray = ["eventDate","businessName", "firstName", "lastName", "eventStreet", "eventCity", "eventState", "eventZip", "eventContact", "eventEmail"]
+    for (var i = 0; i < userResponseArray.length; i++) {
+        document.getElementById("field-" + i  ).innerHTML = document.getElementById(userResponseArray[i]).value;
+    }
   }
 
   </script>
