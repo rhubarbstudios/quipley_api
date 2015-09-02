@@ -20,8 +20,8 @@ get '/' do
     @header_message = "Thank You"
     @message = "Your event has been submitted."
   elsif params['confirm'] == "false"
-    @header_message = "Congratulations! You've won! "
-    @message = "Well, not really. It seems that you've veered into unknown territory, and we'd love for you to come back. <br> Please try again later."
+    @header_message = "Oops"
+    @message = "We are unable to process your event. Please try again later."
   end
 
   erb :index
