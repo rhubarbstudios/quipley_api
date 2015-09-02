@@ -87,6 +87,12 @@ post '/register' do
     activate_resp_parsed = activate_resp.parsed_response
 
     puts "-----------------------------------------------------"
+    puts "USER ID:"
+    puts user_id
+
+    puts "CODE:"
+    puts activation_code
+
     puts "ACTIVATION PUT RESPONSE"
     puts activate_resp_parsed
     puts "-----------------------------------------------------"
