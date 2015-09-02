@@ -16,12 +16,12 @@ get '/' do
     @needs = @needs.first(5)
   end
 
-  if params['confirm'] == true
-    @success_message = "Your event has been submitted."
-  elsif params['confirm'] == false
-    puts "-------------------------------------"
-    puts "FAIL"
-    puts "-------------------------------------"
+  if params['confirm'] == "true"
+    @header_message = "Thank You"
+    @message = "Your event has been submitted."
+  elsif params['confirm'] == "false"
+    @header_message = "Congratulations! You've won! "
+    @message = "Well, not really. It seems that you've veered into unknown territory, and we'd love for you to come back. <br> Please try again later."
   end
 
   erb :index
