@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-var zipcodeField = $('#eventZip');
+var zipcodeField = $('#eventZip'.replace(/ /g,''));
 var ziptasticUrl = "https://zip.getziptastic.com/v2/"
 
 zipcodeField.on("input", function(data){
