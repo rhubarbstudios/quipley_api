@@ -42,8 +42,7 @@ post '/register' do
 
   def fail_redirect(reason)
     puts "REASON FOR FAIL:"
-    $reason = reason
-    puts @reason
+    puts reason
     puts "-----------------"
     redirect "/?confirm=false"
   end
@@ -87,6 +86,21 @@ post '/register' do
     activate_resp = HTTParty.put(activate_post_url)
     activate_resp_parsed = activate_resp.parsed_response
 
+    puts "-----------------------------------------------------"
+    puts "ACTIVATION PUT RESPONSE"
+    puts activate_resp_parsed
+    puts "-----------------------------------------------------"
+
+    if activate_resp_parsed['status']['code'] == 200
+      login_user(email, password, merchant_id)
+    else
+      puts "USER ACTIVATION FAILED"
+      fail_redirect("Could not activate user")
+    end
+
+  end
+
+  def login_user(email, password, merchant_id)
     login_url = ENV['API_URL'] + "v1/users/authenticate"
     login_options = {
       body: {
@@ -94,20 +108,23 @@ post '/register' do
         password: password
       }
     }
+
     login_resp = HTTParty.post(login_url, login_options)
     login_resp_parsed = login_resp.parsed_response
 
     puts "-----------------------------------------------------"
     puts "LOGIN POST RESPONSE"
     puts login_resp_parsed
+    puts "COOKIE"
+    puts login_resp.headers['set-cookie']
     puts "-----------------------------------------------------"
 
     if login_resp_parsed['status']['code'] == 200
       session_cookie = login_resp.headers['set-cookie']
       create_location(merchant_id, session_cookie)
     else
-      puts "ACTIVATE USER FAILED"
-      fail_redirect("Could not activate user")
+      puts "USER LOGIN FAILED"
+      fail_redirect("Could not login user")
     end
 
   end
