@@ -195,10 +195,6 @@ post '/register' do
     puts "-----------------------------------------------------"
 
     if program_resp_parsed['status']['code'] == "201"
-      email = Mailer.contact
-      puts "============================================================="
-      puts email
-      email.deliver_now
       redirect "/?confirm=true"
     else
       puts "CREATE PROGRAM FAILED"
