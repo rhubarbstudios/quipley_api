@@ -2,46 +2,8 @@ require 'sinatra'
 require 'httparty'
 require 'madison'
 require 'dotenv'
-require 'action_mailer'
 
 Dotenv.load
-
-class Mailer < ActionMailer::Base
-  def contact
-    mail(
-      :to      => "jeffersonchoi@gmail.com",
-      :from    => "jeffersonchoi@gmail.com",
-      :subject => "Test") do |format|
-        format.text
-        format.html
-    end
-  end
-end
-
-configure do
-  set :root,    File.dirname(__FILE__)
-  set :views,   File.join(Sinatra::Application.root, 'views')
-  set :haml,    { :format => :html5 }
-
-
-  ActionMailer::Base.smtp_settings = {
-    :address => "localhost",
-    :port => '1025'
-    # :authentication => :plain,
-    # :user_name => ENV['SENDGRID_USERNAME'],
-    # :password => ENV['SENDGRID_PASSWORD'],
-    # :domain => ENV['SENDGRID_DOMAIN'],
-  }
-  if production?
-    ActionMailer::Base.view_paths = File.join(Sinatra::Application.root, 'views')
-  else
-    ActionMailer::Base.delivery_method = :smtp
-    ActionMailer::Base.file_settings = { :location => File.join(Sinatra::Application.root, 'tmp/emails') }
-    ActionMailer::Base.view_paths = File.join(Sinatra::Application.root, 'views')
-  end
-end
-
-
 
 get '/' do
   puts ENV['API_URL']
@@ -180,7 +142,7 @@ post '/register' do
         address_line_1: params['street'],
         city: params['city'],
         state: params['state'],
-        postal_code: params['zip'],
+        postcode: params['zip'],
         country: params['country']
       },
       headers: {
