@@ -17,8 +17,8 @@ get '/' do
   end
 
   if params['confirm'] == "true"
-    @header_message = "Thank You"
-    @message = "Your event has been submitted."
+    @header_message = "Thank You!"
+    @message = "You will receive an SMS notification shortly about your event."
   elsif params['confirm'] == "false"
     @header_message = "Oops"
     @message = "We are unable to process your event. Please try again later."
