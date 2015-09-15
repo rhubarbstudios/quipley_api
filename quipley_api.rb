@@ -133,6 +133,7 @@ post '/register' do
     locations_post_url = ENV['API_URL'] + "v1/merchants/#{@merchant_id}/locations"
     location_options = {
       body: {
+        name: params['name'],
         address_line_1: params['street'],
         city: params['city'],
         state: params['state'],
