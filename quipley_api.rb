@@ -37,8 +37,9 @@ end
 post '/register' do
 
   @need_id = params['need_id']
-  email = params['email']
-  password = params['mobile'].gsub(/\D/, '')
+  @email = params['email']
+  @mobile = params['mobile'].gsub(/\D/, '')
+  @password = @mobile
 
   def fail_redirect(reason)
     puts "REASON FOR FAIL:"
@@ -47,16 +48,16 @@ post '/register' do
     redirect "/?confirm=false"
   end
 
-  def create_user(email, password)
+  def create_user
     user_options = {
       body: {
         last_name: params['last_name'],
         first_name: params['first_name'],
         name: params['name'],
-        email: email,
-        mobile: params['mobile'],
-        password: password,
-        password_confirmation: password
+        email: @email,
+        mobile: @mobile,
+        password: @password,
+        password_confirmation: @password
       }
     }
     user_post_url = ENV['API_URL'] + "v1/merchants/users"
@@ -69,11 +70,11 @@ post '/register' do
     puts "-----------------------------------------------------"
 
     if user_resp_parsed['status']['code'] == "201"
-      user_id = user_resp_parsed['data']['user']['id']
-      merchant_id = user_resp_parsed['data']['merchant']['id']
-      activation_code = user_resp_parsed['data']['activationCode']
+      @user_id = user_resp_parsed['data']['user']['id']
+      @merchant_id = user_resp_parsed['data']['merchant']['id']
+      @activation_code = user_resp_parsed['data']['activationCode']
 
-      activate_user(user_id, activation_code, email, password, merchant_id)
+      activate_user
     else
       puts "CREATE USER FAILED"
       fail_redirect("Could not create user")
@@ -81,24 +82,17 @@ post '/register' do
 
   end
 
-  def activate_user(user_id, activation_code, email, password, merchant_id)
-    activate_post_url = ENV['API_URL'] + "v1/activate/#{user_id}/#{activation_code}"
+  def activate_user
+    activate_post_url = ENV['API_URL'] + "v1/activate/#{@user_id}/#{@activation_code}"
     activate_resp = HTTParty.put(activate_post_url)
     activate_resp_parsed = activate_resp.parsed_response
 
     puts "-----------------------------------------------------"
     puts "USER ID:"
-    puts user_id
-
-    puts "CODE:"
-    puts activation_code
-
-    puts "ACTIVATION PUT RESPONSE"
-    puts activate_resp_parsed
-    puts "-----------------------------------------------------"
+    puts @user_id
 
     if activate_resp_parsed['status']['code'] == 200
-      login_user(email, password, merchant_id)
+      login_user
     else
       puts "USER ACTIVATION FAILED"
       fail_redirect("Could not activate user")
@@ -106,12 +100,12 @@ post '/register' do
 
   end
 
-  def login_user(email, password, merchant_id)
+  def login_user
     login_url = ENV['API_URL'] + "v1/users/authenticate"
     login_options = {
       body: {
-        email: email,
-        password: password
+        email: @email,
+        password: @password
       }
     }
 
@@ -126,8 +120,8 @@ post '/register' do
     puts "-----------------------------------------------------"
 
     if login_resp_parsed['status']['code'] == 200
-      session_cookie = login_resp.headers['set-cookie']
-      create_location(merchant_id, session_cookie)
+      @session_cookie = login_resp.headers['set-cookie']
+      create_location
     else
       puts "USER LOGIN FAILED"
       fail_redirect("Could not login user")
@@ -135,8 +129,8 @@ post '/register' do
 
   end
 
-  def create_location(merchant_id, session_cookie)
-    locations_post_url = ENV['API_URL'] + "v1/merchants/#{merchant_id}/locations"
+  def create_location
+    locations_post_url = ENV['API_URL'] + "v1/merchants/#{@merchant_id}/locations"
     location_options = {
       body: {
         address_line_1: params['street'],
@@ -146,7 +140,7 @@ post '/register' do
         country: params['country']
       },
       headers: {
-        'Cookie' => session_cookie
+        'Cookie' => @session_cookie
       }
     }
 
@@ -159,8 +153,8 @@ post '/register' do
     puts "-----------------------------------------------------"
 
     if location_resp_parsed['status']['code'] == 200
-      location_id = location_resp_parsed['data']['id']
-      create_program(@need_id, location_id, session_cookie)
+      @location_id = location_resp_parsed['data']['id']
+      create_program
     else
       puts "CREATE LOCATION FAILED"
       fail_redirect("Could not create location")
@@ -168,11 +162,11 @@ post '/register' do
 
   end
 
-  def create_program(need_id, location_id, session_cookie)
+  def create_program
     programs_post_url = ENV['API_URL'] + "v1/needs/#{@need_id}/programs"
     program_options = {
       body: {
-        location_id: location_id,
+        location_id: @location_id,
         name: params['name'],
         promised_amount: params['promised_amount'],
         promised_percentage: params['promised_percentage'],
@@ -182,7 +176,7 @@ post '/register' do
         product_discount_amount: params['product_discount_amount']
       },
       headers: {
-        'Cookie' => session_cookie
+        'Cookie' => @session_cookie
       }
     }
 
@@ -203,6 +197,6 @@ post '/register' do
 
   end
 
-  create_user(email, password)
+  create_user
 
 end

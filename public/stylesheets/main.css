@@ -88,6 +88,8 @@ body {
 #register input[type=date] {
   -webkit-appearance: none;
   line-height: 1.5em; }
+#register img {
+  margin-bottom: 1em; }
 
 .btn-group .parsley-errors-list {
   float: right;
