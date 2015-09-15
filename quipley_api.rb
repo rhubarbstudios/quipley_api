@@ -31,6 +31,7 @@ get '/register' do
   @need_name = params['need_name']
   @need_id = params['need_id']
   @need_community_name = params['need_community_name']
+
   erb :register
 end
 
